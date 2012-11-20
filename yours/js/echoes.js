@@ -1,4 +1,4 @@
-/* Author: Oren Farhi, http://twitter.com/orizens */
+/* Author: Oren Farhi, http://tikalk.com, http://twitter.com/orizens */
 var Echoes = {
 	Models: {},
 	Views: {},
@@ -22,6 +22,6 @@ var Echoes = {
 	},
 
 	initialize: function() {
-		window.EchoesPlayer = new Echoes.Player();
+		// window.EchoesPlayer = new Echoes.Player();
 	}
 };
