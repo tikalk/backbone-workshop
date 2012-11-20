@@ -11,7 +11,7 @@ Echoes.Views.App = Backbone.View.extend({
 			collection: this.model.get('results'),
 			model: this.model
 		});
-		this.modules.resultsView.on('search-result-selected', this.onMediaAddedToQueue, this);
+		
 		this.modules.resultsNav = new Echoes.Views.ResultsNavigation({
 			model: this.model.get('resultsNav')
 		});
