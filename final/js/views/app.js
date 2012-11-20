@@ -5,8 +5,6 @@ Echoes.Views.App = Backbone.View.extend({
 		//- defining modules
 		this.modules = {};
 		this.modules.searchBar = new Echoes.Views.MediaSearch({ model: this.model.get('search') });
-		// this.modules.searchBar.on('search-request', this.query, this);
-
 
 		this.modules.youtubePlayer = new Echoes.Views.YoutubePlayer({ model: this.model });
 		this.modules.resultsView = new Echoes.Views.YoutubeSearchResults({ 
