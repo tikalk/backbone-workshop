@@ -1,0 +1,1 @@
+$(document).on('templates-loaded', Echoes.initialize);

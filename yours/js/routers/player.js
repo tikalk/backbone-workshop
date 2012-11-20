@@ -1,0 +1,28 @@
+Echoes.Player = Backbone.Router.extend({
+
+	routes: {
+		'': 'explore',
+		'explore': 'explore',
+
+		'searches/:query': 'search',
+		'play/:mediaId': 'playMedia'
+	},
+
+	initialize: function() {
+		this.appView = new Echoes.Views.App();
+		Backbone.history.start();
+		this.appView.query();
+	},
+
+	explore: function() {
+		this.appView.query();
+	},
+
+	search: function(query) {
+		this.appView.query(query);
+	},
+
+	playMedia: function(mediaId) {
+		this.appView.play(mediaId);
+	}
+});
