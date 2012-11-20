@@ -8,27 +8,22 @@ Echoes.Views.ResultsNavigation = Backbone.View.extend({
 
 	initialize: function() {
 		this.template = _.template($('#results-navigation').html());
-		this.model = new Echoes.Models.ResultsNavigation();
 		this.model.on('change', this.render, this);
 	},
 
-	render: function() {
-		this.$el.html( this.template(this.model.toJSON()) );
+	render: function(model) {
+		this.$el.toggleClass( 'prev-disabled', model.isAtStart() );
+		this.$el.html( this.template(model.toJSON()) );
 		return this;
 	},
 
 	onNextClick: function(ev) {
 		ev.preventDefault();
-		this.trigger('navigate-index-change', this.model.getNextIndex());
+		this.model.setNextIndex();
 	},
 
 	onPrevClick: function(ev) {
 		ev.preventDefault();
-		this.trigger('navigate-index-change', this.model.getPrevIndex());
-	},
-
-	update: function(results) {
-		this.model.set(results);
-		this.$el.toggleClass('prev-disabled', this.model.get('startIndex') === 1);
+		this.model.setPrevIndex();
 	}
 });

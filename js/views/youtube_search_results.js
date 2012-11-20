@@ -2,7 +2,6 @@ Echoes.Views.YoutubeSearchResults = Backbone.View.extend({
 	el: "#searchResults",
 
 	initialize: function() {
-		this.collection = new Echoes.Collections.YoutubeSearchResults();
 		this.collection.on('reset', this.render, this);
 		this.views = [];
 	},
@@ -28,11 +27,8 @@ Echoes.Views.YoutubeSearchResults = Backbone.View.extend({
 		this.views = [];
 	},
 
-	update: function(results) {
-		this.collection.reset(results.items);
-	},
-
-	onSelected: function(ev) {
-		this.trigger('search-result-selected', ev);
+	onSelected: function(mediaData) {
+		// this.trigger('search-result-selected', ev);
+		this.model.set('playedMedia', mediaData);
 	}
 });

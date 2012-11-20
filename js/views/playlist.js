@@ -4,14 +4,15 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	initialize: function() {
 		this.views = [];
 		this.$list = this.$('.now-playlist-list');
+		this.model.on('change:playedMedia', this.render, this);
 	},
 
-	render: function(collection, selectedMedia) {
+	render: function(model, selectedMedia) {
 		this.selectedMediaId = selectedMedia.id;
 		this.cleanViews();
 		this.$list.empty();
 
-		_.each(collection, function(model) {
+		_.each(model.get('data').items, function(model) {
 			var index = this.views.length;
 			this.views.push( new Echoes.Views.PlaylistItem({ model: model, selectedId: selectedMedia.id }) );
 			this.views[index].on('selected', this.updateSelected, this);
@@ -29,6 +30,7 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	getSelected: function() {
 		return this.$el.find("a[href*='"+ this.selectedMediaId + "']");
 	},
+
 	removeSelected: function() {
 		this.getSelected().parent().removeClass('active');
 	},
@@ -39,6 +41,6 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	},
 
 	scrollToItem: function() {
-		this.$list.get(0).scrollTop = this.getSelected().offset().top;
+		this.$list.get(0).scrollTop = this.$list.scrollTop() + this.getSelected().parent().position().top;
 	}
 });

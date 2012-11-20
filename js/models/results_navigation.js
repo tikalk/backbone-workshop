@@ -19,11 +19,21 @@ Echoes.Models.ResultsNavigation = Backbone.Model.extend({
 		});
 	},
 
-	getNextIndex: function() {
-		return this.get('startIndex') + this.get('itemsPerPage');
+	setNextIndex: function() {
+		this.set('startIndex', this.get('startIndex') + this.get('itemsPerPage'));
 	},
 
-	getPrevIndex: function() {
-		return this.get('startIndex') - this.get('itemsPerPage');
+	setPrevIndex: function() {
+		this.set('startIndex', this.get('startIndex') - this.get('itemsPerPage'));
+	},
+
+	isAtStart: function() {
+		return this.get('startIndex') === 1;
+	},
+
+	validate: function(attrs) {
+		if (attrs.startIndex < 1) {
+			return 'startIndex must be greater than 1';
+		}
 	}
 });

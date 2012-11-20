@@ -11,6 +11,7 @@ Echoes.Player = Backbone.Router.extend({
 	initialize: function() {
 		this.appView = new Echoes.Views.App();
 		Backbone.history.start();
+		this.appView.query();
 	},
 
 	explore: function() {
@@ -22,7 +23,6 @@ Echoes.Player = Backbone.Router.extend({
 	},
 
 	playMedia: function(mediaId) {
-		this.appView.query(false, {ignore: true});
 		this.appView.play(mediaId);
 	}
 });

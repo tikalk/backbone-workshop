@@ -8,8 +8,13 @@ Echoes.Views.YoutubePlayer = Backbone.View.extend({
 
 	initialize: function() {
 		this.$player = this.$el.find('iframe');
+		this.model.on('change:playedMedia', this.playMedia, this);
 	},
 
+	playMedia: function(model, media) {
+		this.play(media);
+	},
+	
 	play: function(mediaData) {
 		var mediaSource = "http://www.youtube.com/embed/" + mediaData.id + "?autoplay=1";
 		this.$player.attr('src', mediaSource);

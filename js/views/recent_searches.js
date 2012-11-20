@@ -10,6 +10,7 @@ Echoes.Views.RecentSearches = Backbone.View.extend({
 	initialize: function() {
 		this.$list = this.$('.recent-searches-list');
 		this.template = _.template($(this.template).html());
+		this.model.on('change:query', this.add, this);
 	},
 
 	render: function(data) {
@@ -17,7 +18,7 @@ Echoes.Views.RecentSearches = Backbone.View.extend({
 		return this;
 	},
 
-	add: function(query) {
+	add: function(model, query) {
 		this.render({ query: query });
 	},
 

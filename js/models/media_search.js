@@ -3,7 +3,7 @@ Echoes.Models.MediaSearch = Backbone.Model.extend({
 		query: 'pink floyd'
 	},
 
-	getQuery: function() {
-		return this.get('query');
+	triggerChange: function() {
+		this.trigger('change:query', this, this.get('query'));
 	}
 });
