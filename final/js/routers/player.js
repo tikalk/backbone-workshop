@@ -8,20 +8,20 @@ Echoes.Player = Backbone.Router.extend({
 		'play/:mediaId': 'playMedia'
 	},
 
-	initialize: function() {
-		this.appView = new Echoes.Views.App();
+	initialize: function(attributes) {
+		this.model = attributes.model;
 		Backbone.history.start();
 	},
 
 	explore: function() {
-		this.appView.query();
+		this.model.fetch();
 	},
 
 	search: function(query) {
-		this.appView.query(query);
+		this.model.query({ query: query });
 	},
 
 	playMedia: function(mediaId) {
-		this.appView.play(mediaId);
+		this.model.play(mediaId);
 	}
 });

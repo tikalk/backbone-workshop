@@ -22,6 +22,8 @@ var Echoes = {
 	},
 
 	initialize: function() {
-		window.EchoesPlayer = new Echoes.Player();
+		var appModel = new Echoes.Models.YoutubeMediaProvider();
+		var appView =  new Echoes.Views.App({ model: appModel });
+		var appRouter = new Echoes.Player({ model: appModel });
 	}
 };

@@ -4,7 +4,6 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 	className: 'well youtube-item span3 nicer-ux',
 
 	events: {
-		'click a': 'selectMedia',
 		'click .media-desc': 'toggleInformation'
 	},
 
@@ -19,10 +18,6 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 		return this;
 	},
 
-	selectMedia: function(ev) {
-		this.trigger('media-clicked', this.model.toJSON());
-	},
-
 	toggleInformation: function() {
 		this.$el.toggleClass('show-description');
 		this.$el.find('.icon-white').toggleClass('icon-chevron-up').toggleClass('icon-chevron-down');
@@ -30,6 +25,7 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 
 	destroy: function() {
 		this.undelegateEvents();
+		this.model.off('change', this.render);
 		this.$el.remove();
 	}
 });

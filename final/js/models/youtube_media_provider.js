@@ -2,7 +2,7 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 	
 	defaults: {
 		search: '',
-		playedMedia: '',
+		mediaId: '',
 
 		results: null,
 		resultsNav: null
@@ -18,6 +18,7 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 		this.get('resultsNav').on('change:startIndex', this.search, this);
 		this.get('search').on('change:query', this.search, this);
 		this.on('change:data', this.publishResponse, this);
+		this.search();
 	},
 
 	search: function() {
@@ -26,10 +27,6 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 
 	query: function(data) {
 		this.get('resultsNav').set({ 'startIndex': 1}, { silent: true });
-		if (_.isUndefined(data.query)) {
-			this.get('search').triggerChange();
-			return;
-		}
 		this.get('search').set(data);
 	},
 
@@ -42,5 +39,9 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 	publishResponse: function(model, data) {
 		this.get('results').reset(data.items);
 		this.get('resultsNav').set(data);
+	},
+
+	play: function(mediaId) {
+		this.set('mediaId', mediaId);
 	}
 });

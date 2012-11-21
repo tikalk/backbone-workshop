@@ -1,8 +1,5 @@
 Echoes.Views.App = Backbone.View.extend({
 	initialize: function() {
-		this.model = new Echoes.Models.YoutubeMediaProvider();
-
-		//- defining modules
 		this.modules = {};
 		this.modules.searchBar = new Echoes.Views.MediaSearch({ model: this.model.get('search') });
 
@@ -18,13 +15,5 @@ Echoes.Views.App = Backbone.View.extend({
 
 		this.modules.recentSearches = new Echoes.Views.RecentSearches({ model: this.model.get('search') });
 		this.modules.nowPlaylist = new Echoes.Views.Playlist({ model: this.model });
-	},
-
-	query: function(query) {
-		this.model.query({ query: query });
-	},
-
-	play: function(mediaId) {
-		this.modules.youtubePlayer.play({ id: mediaId });
 	}
 });

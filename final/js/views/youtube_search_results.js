@@ -16,7 +16,6 @@ Echoes.Views.YoutubeSearchResults = Backbone.View.extend({
 		this.collection.each(function(item){
 			var index = this.views.length;
 			this.views.push(new Echoes.Views.YoutubeSearchResultItem({ model: item }));
-			this.views[index].on('media-clicked', this.onSelected, this);
 			this.$el.append( this.views[index].render().el );
 		}, this);
 		this.$el.delay(200).fadeIn(300);
@@ -25,10 +24,5 @@ Echoes.Views.YoutubeSearchResults = Backbone.View.extend({
 	cleanViews: function() {
 		_.invoke(this.views, 'destroy');
 		this.views = [];
-	},
-
-	onSelected: function(mediaData) {
-		// this.trigger('search-result-selected', ev);
-		this.model.set('playedMedia', mediaData);
 	}
 });
