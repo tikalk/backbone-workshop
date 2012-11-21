@@ -30,7 +30,7 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 			this.get('search').triggerChange();
 			return;
 		}
-		this.set(data);
+		this.get('search').set(data);
 	},
 
 	urlRoot: function() {
