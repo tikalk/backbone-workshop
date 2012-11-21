@@ -4,7 +4,7 @@ Echoes.Views.App = Backbone.View.extend({
 		this.modules.searchBar = new Echoes.Views.MediaSearch({ model: this.model.get('search') });
 
 		this.modules.youtubePlayer = new Echoes.Views.YoutubePlayer({ model: this.model });
-		this.modules.resultsView = new Echoes.Views.YoutubeSearchResults({ 
+		this.modules.resultsView = new Echoes.Views.YoutubeSearchResults({
 			collection: this.model.get('results'),
 			model: this.model
 		});
