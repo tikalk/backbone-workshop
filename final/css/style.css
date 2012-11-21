@@ -85,6 +85,7 @@ footer p {
 ::-webkit-scrollbar-track,
 ::-moz-scrollbar-track {
     background: grey;
+    border-radius: 5px;
 }
  
 /* This will style the scrollbar thumb */
