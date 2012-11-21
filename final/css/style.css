@@ -59,7 +59,7 @@ footer p {
 	padding: 1px 1px 30px;
 	margin-top: 39px;
 	position: relative;
-	left: -60px;
+	margin-left: 269px;
 }
 
 /* This is the entire scrollbar unit. */
@@ -84,7 +84,7 @@ footer p {
 /* This is the background which the scrollbar moves in. */
 ::-webkit-scrollbar-track,
 ::-moz-scrollbar-track {
-    background: transparent;
+    background: grey;
 }
  
 /* This will style the scrollbar thumb */

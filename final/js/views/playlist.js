@@ -4,17 +4,17 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	initialize: function() {
 		this.views = [];
 		this.$list = this.$('.now-playlist-list');
-		this.model.on('change:playedMedia', this.render, this);
+		this.model.on('change:mediaId', this.render, this);
 	},
 
-	render: function(model, selectedMedia) {
-		this.selectedMediaId = selectedMedia.id;
+	render: function(model, selectedMediaId) {
+		this.selectedMediaId = selectedMediaId;
 		this.cleanViews();
 		this.$list.empty();
 
 		_.each(model.get('data').items, function(model) {
 			var index = this.views.length;
-			this.views.push( new Echoes.Views.PlaylistItem({ model: model, selectedId: selectedMedia.id }) );
+			this.views.push( new Echoes.Views.PlaylistItem({ model: model, selectedId: selectedMediaId }) );
 			this.views[index].on('selected', this.updateSelected, this);
 			this.$list.append( this.views[index].render().el );
 		}, this);
