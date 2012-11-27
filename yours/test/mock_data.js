@@ -999,45 +999,6 @@ var examples = {
             "autoPlay": "allowed",
             "syndicate": "allowed"
         }
-    },
-    "json24": {
-        "id": "8seovMW5QIE",
-        "uploaded": "2011-08-20T07:49:42.000Z",
-        "updated": "2012-10-14T23:09:45.000Z",
-        "uploader": "mario64guy",
-        "category": "Music",
-        "title": "Pink Floyd - Echoes FULL VERSION LIVE 1971 BBC",
-        "description": "Pink Floyd performing their epic song \"Echoes\" from the album Meddle, 1971 for the BBC Download MP3: www.mediafire.com",
-        "thumbnail": {
-            "sqDefault": "http://i.ytimg.com/vi/8seovMW5QIE/default.jpg",
-            "hqDefault": "http://i.ytimg.com/vi/8seovMW5QIE/hqdefault.jpg"
-        },
-        "player": {
-            "default": "https://www.youtube.com/watch?v=8seovMW5QIE&feature=youtube_gdata_player",
-            "mobile": "https://m.youtube.com/details?v=8seovMW5QIE"
-        },
-        "content": {
-            "1": "rtsp://v5.cache6.c.youtube.com/CiILENy73wIaGQmBQLnFvKjH8hMYDSANFEgGUgZ2aWRlb3MM/0/0/0/video.3gp",
-            "5": "https://www.youtube.com/v/8seovMW5QIE?version=3&f=videos&app=youtube_gdata",
-            "6": "rtsp://v8.cache5.c.youtube.com/CiILENy73wIaGQmBQLnFvKjH8hMYESARFEgGUgZ2aWRlb3MM/0/0/0/video.3gp"
-        },
-        "duration": 2319,
-        "rating": 4.9357059999999997,
-        "likeCount": "857",
-        "ratingCount": 871,
-        "viewCount": 217248,
-        "favoriteCount": 0,
-        "commentCount": 177,
-        "accessControl": {
-            "comment": "allowed",
-            "commentVote": "allowed",
-            "videoRespond": "moderated",
-            "rate": "allowed",
-            "embed": "allowed",
-            "list": "allowed",
-            "autoPlay": "allowed",
-            "syndicate": "allowed"
-        }
     }
 }
 var examplesArray = [{
@@ -2007,44 +1968,6 @@ var examplesArray = [{
         "relationship": "deny",
         "countries": "DE"
     }],
-    "accessControl": {
-        "comment": "allowed",
-        "commentVote": "allowed",
-        "videoRespond": "moderated",
-        "rate": "allowed",
-        "embed": "allowed",
-        "list": "allowed",
-        "autoPlay": "allowed",
-        "syndicate": "allowed"
-    }
-}, {
-    "id": "8seovMW5QIE",
-    "uploaded": "2011-08-20T07:49:42.000Z",
-    "updated": "2012-10-14T23:09:45.000Z",
-    "uploader": "mario64guy",
-    "category": "Music",
-    "title": "Pink Floyd - Echoes FULL VERSION LIVE 1971 BBC",
-    "description": "Pink Floyd performing their epic song \"Echoes\" from the album Meddle, 1971 for the BBC Download MP3: www.mediafire.com",
-    "thumbnail": {
-        "sqDefault": "http://i.ytimg.com/vi/8seovMW5QIE/default.jpg",
-        "hqDefault": "http://i.ytimg.com/vi/8seovMW5QIE/hqdefault.jpg"
-    },
-    "player": {
-        "default": "https://www.youtube.com/watch?v=8seovMW5QIE&feature=youtube_gdata_player",
-        "mobile": "https://m.youtube.com/details?v=8seovMW5QIE"
-    },
-    "content": {
-        "1": "rtsp://v5.cache6.c.youtube.com/CiILENy73wIaGQmBQLnFvKjH8hMYDSANFEgGUgZ2aWRlb3MM/0/0/0/video.3gp",
-        "5": "https://www.youtube.com/v/8seovMW5QIE?version=3&f=videos&app=youtube_gdata",
-        "6": "rtsp://v8.cache5.c.youtube.com/CiILENy73wIaGQmBQLnFvKjH8hMYESARFEgGUgZ2aWRlb3MM/0/0/0/video.3gp"
-    },
-    "duration": 2319,
-    "rating": 4.935706,
-    "likeCount": "857",
-    "ratingCount": 871,
-    "viewCount": 217248,
-    "favoriteCount": 0,
-    "commentCount": 177,
     "accessControl": {
         "comment": "allowed",
         "commentVote": "allowed",

@@ -45,6 +45,9 @@ footer p {
 	margin: 0;
 }
 /* Layout style */
+.sidebar {
+	width: 270px;
+}
 .sidebar-left-fixed {
 	position: fixed;
 	bottom: 0;
@@ -396,6 +399,11 @@ footer p {
 	}
 	.show-youtube-player {
 		top: 0;
+	}
+}
+@media (max-width: 1024px) {
+	.youtube-item.span3 {
+		width: 24.8%;
 	}
 }
 @media (min-width: 1200px) {

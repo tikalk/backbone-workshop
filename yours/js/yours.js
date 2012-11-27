@@ -1,11 +1,9 @@
-$(document).on('templates-loaded',
+$(document).on('templates-loaded', function(){
 
-function(){
-
+// THIS IS the main container to append media items
 window.$results = $('#searchResults');
 
 // YOUR CODE HERE
-
 
 
 });

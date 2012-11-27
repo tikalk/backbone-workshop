@@ -3,6 +3,7 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 	defaults: {
 		search: '',
 		mediaId: '',
+		maxResults: 24,
 
 		results: null,
 		resultsNav: null
@@ -33,7 +34,8 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 	urlRoot: function() {
 		return 'https://gdata.youtube.com/feeds/api/videos?q=' + 
 			this.get('search').get('query') + '&alt=jsonc&v=2&start-index=' + 
-			this.get('resultsNav').get('startIndex');
+			this.get('resultsNav').get('startIndex') + 
+			'&max-results=' + this.get('maxResults');
 	},
 
 	publishResponse: function(model, data) {
