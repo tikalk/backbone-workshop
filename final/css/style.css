@@ -336,7 +336,8 @@ footer p {
 	border: none;
 }
 .wood .sidebar.well	{
-	background-color: rgba(0, 0, 0, .75);
+	/*background-color: rgba(0, 0, 0, .75);*/
+	background: url(../img/wild_oliva.png);
 	box-shadow: 2px 5px 10px black;
 }
 .wood a {

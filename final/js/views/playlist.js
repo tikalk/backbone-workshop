@@ -8,6 +8,9 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	},
 
 	render: function(model, selectedMediaId) {
+		if (!model.get('data')) {
+			return;
+		}
 		this.selectedMediaId = selectedMediaId;
 		this.cleanViews();
 		this.$list.empty();
