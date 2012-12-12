@@ -22,6 +22,6 @@ Echoes.Player = Backbone.Router.extend({
 	},
 
 	playMedia: function(mediaId) {
-		this.model.play(mediaId);
+		this.model.play(mediaId, { silent: true });
 	}
 });

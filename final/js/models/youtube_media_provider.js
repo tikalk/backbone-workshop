@@ -6,7 +6,8 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 		maxResults: 24,
 
 		results: null,
-		resultsNav: null
+		resultsNav: null,
+		nowPlaylist: null
 	},
 
 	initialize: function() {
@@ -14,6 +15,7 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 		this.set('search', new Echoes.Models.MediaSearch());		
 		this.set('results', new Echoes.Collections.YoutubeSearchResults());
 		this.set('resultsNav', new Echoes.Models.ResultsNavigation());
+		this.set('nowPlaylist', new Echoes.Collections.YoutubePlaylist());
 
 		//- Listen to events
 		this.get('resultsNav').on('change:startIndex', this.search, this);

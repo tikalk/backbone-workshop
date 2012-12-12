@@ -8,12 +8,19 @@ Echoes.Views.PlaylistItem = Backbone.View.extend({
 	template: '#playlist-media-item',
 
 	initialize: function() {
+		this.model.on('change:selected', this.markSelected, this);
 		this.$el.toggleClass('active', this.options.selectedId === this.model.id);
 	},
 
 	render: function() {
-		this.$el.html(_.template($(this.template).html(), this.model));
+		this.$el.html(_.template($(this.template).html(), this.model.toJSON()));
 		return this;
+	},
+
+	markSelected: function(model, selected) {
+		if (selected) {
+			this.select();
+		}
 	},
 
 	select: function() {
