@@ -27,7 +27,6 @@ Echoes.Views.Playlist = Backbone.View.extend({
 
 	cleanViews: function() {
 		_.invoke(this.views, 'destroy');
-		_.invoke(this.views, 'off');
 		this.views = [];
 	},
 
