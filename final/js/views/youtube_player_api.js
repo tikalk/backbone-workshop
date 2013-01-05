@@ -12,6 +12,7 @@ Echoes.Views.YoutubePlayerApi = Backbone.View.extend({
 
 	initialize: function() {
 		this.model.on('change:mediaId', this.play, this);
+		this.collection = this.model.get('nowPlaylist');
 		window.onYouTubeIframeAPIReady = _.bind(this.createPlayer, this);
 		$.getScript('http://www.youtube.com/iframe_api?&ghost=Nan');
 	},
@@ -41,6 +42,10 @@ Echoes.Views.YoutubePlayerApi = Backbone.View.extend({
 			this.toggleNowPlaying(false);
 		}
 
+		if (ev.data === YT.PlayerState.ENDED) {
+			this.playNextInPlaylist();
+		}
+
 		if (ev.data === YT.PlayerState.PLAYING) {
 			// this.model.fetchCurrentMediaInfo();
 			this.toggleNowPlaying(true);
@@ -67,6 +72,8 @@ Echoes.Views.YoutubePlayerApi = Backbone.View.extend({
 	 */
 	playMedia: function(mediaData) {
 		var mediaId = _.isObject(mediaData) ? mediaData.id : mediaData;
+		// updating the mediaId incase it is loaded by next method
+		this.model.set('mediaId', mediaId);
 		this.player.loadVideoById(mediaId);
 	},
 
@@ -102,5 +109,21 @@ Echoes.Views.YoutubePlayerApi = Backbone.View.extend({
 	hide: function(ev) {
 		ev.preventDefault();
 		this.$el.removeClass('show-youtube-player');
+	},
+
+	playNextInPlaylist: function () {
+		var currentMediaId = this.model.get('mediaId'),
+			index = 0;
+		this.collection.find(function(media, i){
+			if (media.id === currentMediaId) {
+				index = i;
+			}
+			return media.id === currentMediaId;
+		});
+		index += 1;
+		if (index === this.collection.length) {
+			index = 0;
+		}
+		this.playMedia(this.collection.at(index));
 	}
 });

@@ -4,7 +4,8 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 	className: 'well youtube-item span3 nicer-ux',
 
 	events: {
-		'click .media-desc': 'toggleInformation'
+		'click .media-desc': 'toggleInformation',
+		'click .add-to-playlist': 'addToPlaylist'
 	},
 
 	initialize: function() {
@@ -21,6 +22,10 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 	toggleInformation: function() {
 		this.$el.toggleClass('show-description');
 		this.$el.find('.icon-white').toggleClass('icon-chevron-up').toggleClass('icon-chevron-down');
+	},
+
+	addToPlaylist: function(ev) {
+		this.model.set('addToPlaylist', true);
 	},
 
 	destroy: function() {

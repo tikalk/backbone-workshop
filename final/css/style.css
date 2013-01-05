@@ -376,6 +376,12 @@ footer p {
 	border-bottom: 1px solid #222;  
 	padding: 12px 15px;  
 }
+@media (max-width: 440px) {
+	.youtube-item .thumbnail {
+		min-height: 120px;
+		max-height: 120px;
+	}
+}
 @media (max-width: 767px) {
 	.sidebar-left-fixed {
 		display: none;
@@ -391,6 +397,9 @@ footer p {
 	.span2 {
 		width: 172px;
 	}
+	.youtube-item.span3 {
+		width: 49%;
+	}
 	.row-fluid .span3 {
 		width: 33.15%;
 	}
@@ -403,7 +412,8 @@ footer p {
 }
 @media (max-width: 1024px) {
 	.youtube-item.span3 {
-		width: 24.8%;
+		width: 49%;
+		float: left;
 	}
 }
 @media (min-width: 1200px) {

@@ -1,8 +1,9 @@
 Echoes.Views.Playlist = Backbone.View.extend({
 	el: '#now-playlist',
+	
+	views: [],	
 
 	initialize: function() {
-		this.views = [];
 		this.$list = this.$('.now-playlist-list');
 		this.collection = this.model.get('nowPlaylist');
 		this.model.on('change:mediaId', this.addItem, this);

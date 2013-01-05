@@ -1,7 +1,8 @@
 Echoes.Models.YoutubeSearchResultItem = Backbone.Model.extend({
 	defaults: {
 		//- custom properties not related to json response
-		likeCountDisplay: 0
+		likeCountDisplay: 0,
+		addToPlaylist: false
 	},
 
 	initialize: function() {

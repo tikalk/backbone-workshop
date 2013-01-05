@@ -20,6 +20,7 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 		//- Listen to events
 		this.get('resultsNav').on('change:startIndex', this.search, this);
 		this.get('search').on('change:query', this.search, this);
+		this.get('results').on('change', this.onItemChange, this);
 		this.on('change:data', this.publishResponse, this);
 		this.search();
 	},
@@ -47,5 +48,10 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 
 	play: function(mediaId) {
 		this.set('mediaId', mediaId);
+	},
+
+	// used to capture add to playlist action
+	onItemChange: function(model, changes) {
+		this.get('nowPlaylist').push(model);
 	}
 });
