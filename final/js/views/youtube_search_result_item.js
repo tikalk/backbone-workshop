@@ -21,7 +21,7 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 
 	toggleInformation: function() {
 		this.$el.toggleClass('show-description');
-		this.$el.find('.icon-white').toggleClass('icon-chevron-up').toggleClass('icon-chevron-down');
+		this.$el.find('.media-desc i').toggleClass('icon-chevron-up').toggleClass('icon-chevron-down');
 	},
 
 	addToPlaylist: function(ev) {
