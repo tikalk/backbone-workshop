@@ -46,8 +46,8 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 		this.get('resultsNav').set(data);
 	},
 
-	play: function(mediaId) {
-		this.set('mediaId', mediaId);
+	play: function(mediaId, options) {
+		this.set({ mediaId: mediaId }, options);
 	},
 
 	// used to capture add to playlist action

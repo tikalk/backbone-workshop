@@ -11,8 +11,7 @@ Echoes.Views.YoutubePlayerApi = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		this.model.on('change:mediaId', this.play, this);
-		this.collection = this.model.get('nowPlaylist');
+		this.listenTo(this.model, 'change:mediaId', this.play);
 		window.onYouTubeIframeAPIReady = _.bind(this.createPlayer, this);
 		$.getScript('http://www.youtube.com/iframe_api?&ghost=Nan');
 	},

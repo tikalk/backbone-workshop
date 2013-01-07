@@ -6,8 +6,8 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	initialize: function() {
 		this.$list = this.$('.now-playlist-list');
 		this.collection = this.model.get('nowPlaylist');
-		this.model.on('change:mediaId', this.addItem, this);
-		this.collection.on('add', this.renderItem, this);
+		this.listenTo(this.model, 'change:mediaId', this.addItem);
+		this.listenTo(this.collection, 'add', this.renderItem);
 	},
 
 	render: function(model, selectedMediaId) {
@@ -31,11 +31,13 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	renderItem: function(model, collection, options) {
 		this.views.push( new Echoes.Views.PlaylistItem({ model: model, selectedId: this.model.get('mediaId') }));
 		this.$list.prepend( this.views[this.views.length - 1].render().el );
-		this.updateSelected(model.get('id'));
 	},
 
 	addItem: function(model, mediaId) {
 		var modelExists = this.collection.get(mediaId);
+		if (_.isUndefined(modelExists)) {
+			return;
+		}
 		if (!modelExists) {
 			this.collection.push( model.get('results').find(function(media){
 				return media.get('id') === mediaId;
@@ -52,11 +54,11 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	},
 
 	getSelected: function() {
-		return this.$el.find("a[href*='"+ this.selectedMediaId + "']");
+		return this.$el.find("a[href*='"+ this.model.previous('mediaId') + "']");
 	},
 
 	removeSelected: function() {
-		var selected = this.collection.get(this.selectedMediaId);
+		var selected = this.collection.get(this.model.previous('mediaId'));
 		if (selected) {
 			selected.set('selected', false);
 		}
@@ -65,7 +67,6 @@ Echoes.Views.Playlist = Backbone.View.extend({
 
 	updateSelected: function(mediaId) {
 		this.removeSelected();
-		this.selectedMediaId = mediaId;
 	},
 
 	scrollToItem: function() {

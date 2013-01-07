@@ -9,7 +9,7 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 	},
 
 	initialize: function() {
-		this.model.on('change', this.render, this);
+		this.listenTo(this.model, 'change', this.render);
 		this.template = _.template($('#youtube-item-search-result').html());
 	},
 

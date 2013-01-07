@@ -6,7 +6,7 @@ Echoes.Views.MediaSearch = Backbone.View.extend({
 	},
 
 	initialize: function(){
-		this.model.on('change:query', this.render, this);
+		this.listenTo(this.model, 'change:query', this.render);
 		// cache input field
 		this.$search = this.$el.find('input');
 		this.render(this.model, this.model.get('query'));

@@ -2,7 +2,7 @@ Echoes.Views.YoutubeSearchResults = Backbone.View.extend({
 	el: "#searchResults",
 
 	initialize: function() {
-		this.collection.on('reset', this.render, this);
+		this.listenTo(this.collection, 'reset', this.render);
 		this.views = [];
 	},
 

@@ -8,7 +8,7 @@ Echoes.Views.YoutubePlayer = Backbone.View.extend({
 
 	initialize: function() {
 		this.$player = this.$el.find('iframe');
-		this.model.on('change:mediaId', this.playMedia, this);
+		this.listenTo(this.model, 'change:mediaId', this.playMedia);
 	},
 
 	playMedia: function(model, media) {

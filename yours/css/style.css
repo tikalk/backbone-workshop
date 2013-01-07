@@ -36,7 +36,7 @@ footer {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	background: transparent url(../img/dark_leather.png);
+	background: #1b1b1b;
 	padding: 10px 0 10px 10px;
 	box-shadow: 0 0px 10px black;
 	left: 0;
@@ -249,19 +249,18 @@ footer p {
 	position: fixed;
 	right: 5px;
 	z-index: 1031;
-	box-shadow: 1px 0px 15px 1px rgba(0, 0, 0, .9);
-	background: rgba(0,0,0,.8);
-	top: -268px;
+	-webkit-transform: translate3d(0, -279px, 0);
+	transform: translate3d(0, -279px, 0);
 }
 .youtube-player .controls {
 	text-align: right;
 	position: absolute;
-	bottom: -28px;
+	bottom: 0;
 	right: 0;
 }
-.show-youtube-player.youtube-player .controls {
-	position: relative;
-	bottom:0;
+.youtube-player.show-youtube-player .controls {
+	bottom: auto;
+	top: 0;
 }
 .youtube-player a {
 	text-align: center;
@@ -275,9 +274,13 @@ footer p {
 }
 .ytplayer {
 	z-index: 10;
+	margin-right: 20px;
 }
 .show-youtube-player {
-	top: 0px;
+	-webkit-transform: translate3d(0, -30px, 0);
+	transform: translate3d(0, -30px, 0);
+	box-shadow: 1px 0px 15px 1px rgba(0, 0, 0, .9);
+	background: rgba(0,0,0,.8);
 }
 .youtube-player .hide-player {
 	display: none;
@@ -329,9 +332,6 @@ footer p {
 }
 .wood .navbar {
 	font-family: ComfortaaBold;
-}
-.wood .navbar-inner {
-	background: transparent url(../img/dark_leather.png);
 }
 .wood .hero-unit, 
 .wood .well {

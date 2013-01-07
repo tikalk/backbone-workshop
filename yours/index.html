@@ -56,10 +56,11 @@
 
 		<!-- YOUTUBE PLAYER -->
 		<div id="youtube-player-container" class="youtube-player ux-maker">
-			<iframe id="ytplayer" class="ytplayer" type="text/html" width="350" height="270" src="" frameborder="0"></iframe>
+			<div id="player" class="ytplayer" style="width: 350px; height: 270px;"></div>
+			<!-- <iframe id="ytplayer" class="ytplayer" type="text/html" width="350" height="270" src="" frameborder="0"></iframe> -->
 			<div class="controls">
-				<a href="#hide-media" class="hide-player"><i class="icon-arrow-up icon-white"></i>Hide Media</a>
-				<a href="#show-player" class="show-player"><i class="icon-facetime-video icon-white"></i> Show Media</a>
+				<a href="#hide-media" class="hide-player" title="Hide Video"><i class="icon-arrow-up icon-white"></i></a>
+				<a href="#show-player" class="show-player" title="Show Video"><i class="icon-arrow-down icon-white"></i></a>
 			</div>
 		</div>
 
@@ -85,7 +86,7 @@
 		</div>
 
 		<!-- MAIN CONTENT -->
-		<div class="container-fluid container-main offset3">
+		<div class="container-fluid container-main">
 			<div class="row-fluid">
 				
 				<div class="span12">
@@ -110,7 +111,6 @@
 
 <!-- OPTIONAL libraries -->
 <script src="js/libs/bootstrap/bootstrap.min.js"></script>
-<script src="test/mock_data.js"></script>
 
 <!--=====================-->
 <!-- YOUR CODE GOES HERE -->
@@ -127,6 +127,7 @@
 
 <!-- COLLECTIONS -->
 <script src="js/collections/youtube_search_results.js"></script>
+<script src="js/collections/youtube_playlist.js"></script>
 
 
 <!-- VIEWS -->
@@ -135,7 +136,8 @@
 <script src="js/views/playlist_item.js"></script>
 <script src="js/views/recent_searches.js"></script>
 <script src="js/views/results_navigation.js"></script>
-<script src="js/views/youtube_player.js"></script>
+<!-- <script src="js/views/youtube_player.js"></script> -->
+<script src="js/views/youtube_player_api.js"></script>
 <script src="js/views/youtube_search_result_item.js"></script>
 <script src="js/views/youtube_search_results.js"></script>
 <script src="js/views/app.js"></script>
@@ -145,7 +147,6 @@
 
 <!-- INITIALIZE -->
 <script src="js/create.js"></script>
-<script src="js/yours.js"></script>
 <script src="js/start.js"></script>
 </body>
 </html>
