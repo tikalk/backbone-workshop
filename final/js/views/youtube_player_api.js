@@ -112,17 +112,14 @@ Echoes.Views.YoutubePlayerApi = Backbone.View.extend({
 
 	playNextInPlaylist: function () {
 		var currentMediaId = this.model.get('mediaId'),
-			index = 0;
-		this.collection.find(function(media, i){
-			if (media.id === currentMediaId) {
-				index = i;
-			}
-			return media.id === currentMediaId;
-		});
-		index += 1;
-		if (index === this.collection.length) {
-			index = 0;
+			indexOfCurrentMedia = this.collection.pluck('id').lastIndexOf(currentMediaId);
+		if (indexOfCurrentMedia){
+		    indexOfCurrentMedia += 1;
 		}
-		this.playMedia(this.collection.at(index));
+		// if the next index doesn't exist, reset the index to the first index
+		if (indexOfCurrentMedia === this.collection.length) {
+			indexOfCurrentMedia = 0;
+		}
+		this.playMedia(this.collection.at(indexOfCurrentMedia));
 	}
 });
