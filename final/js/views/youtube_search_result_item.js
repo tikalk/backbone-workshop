@@ -30,7 +30,6 @@ Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
 
 	destroy: function() {
 		this.undelegateEvents();
-		this.model.off('change', this.render);
-		this.$el.remove();
+		this.remove();
 	}
 });
