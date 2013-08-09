@@ -1,4 +1,4 @@
-Echoes.Views.YoutubeSearchResults = Backbone.View.extend({
+Echoes.Views.YoutubeMediaItems = Backbone.View.extend({
 	el: "#searchResults",
 
 	initialize: function() {
@@ -15,7 +15,7 @@ Echoes.Views.YoutubeSearchResults = Backbone.View.extend({
 		this.$el.empty();
 		this.collection.each(function(item){
 			var index = this.views.length;
-			this.views.push(new Echoes.Views.YoutubeSearchResultItem({ model: item }));
+			this.views.push(new Echoes.Views.YoutubeMedia({ model: item }));
 			this.$el.append( this.views[index].render().el );
 		}, this);
 		this.$el.delay(200).fadeIn(300);

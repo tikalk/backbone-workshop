@@ -13,9 +13,9 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 	initialize: function() {
 		//- Initiate Models and Collections
 		this.set('search', new Echoes.Models.MediaSearch());		
-		this.set('results', new Echoes.Collections.YoutubeSearchResults());
+		this.set('results', new Echoes.Collections.YoutubeMediaItems());
 		this.set('resultsNav', new Echoes.Models.ResultsNavigation());
-		this.set('nowPlaylist', new Echoes.Collections.YoutubePlaylist());
+		this.set('nowPlaylist', new Echoes.Collections.Playlist());
 
 		//- Listen to events
 		this.get('resultsNav').on('change:startIndex', this.search, this);

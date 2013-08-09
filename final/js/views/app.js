@@ -9,7 +9,7 @@ Echoes.Views.App = Backbone.View.extend({
 			collection: this.model.get('nowPlaylist')
 		});
 		
-		this.views.resultsView = new Echoes.Views.YoutubeSearchResults({
+		this.views.resultsView = new Echoes.Views.YoutubeMediaItems({
 			collection: this.model.get('results'),
 			model: this.model
 		});

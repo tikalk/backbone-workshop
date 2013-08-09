@@ -1,4 +1,4 @@
-Echoes.Views.YoutubeSearchResultItem = Backbone.View.extend({
+Echoes.Views.YoutubeMedia = Backbone.View.extend({
 	tagName: 'li',
 	
 	className: 'well youtube-item span3 nicer-ux',
