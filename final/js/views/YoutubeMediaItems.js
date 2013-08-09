@@ -13,11 +13,12 @@ Echoes.Views.YoutubeMediaItems = Backbone.View.extend({
 	renderCollection: function() {
 		this.cleanViews();
 		this.$el.empty();
-		this.collection.each(function(item){
-			var index = this.views.length;
-			this.views.push(new Echoes.Views.YoutubeMedia({ model: item }));
-			this.$el.append( this.views[index].render().el );
-		}, this);
+		this.views = this.collection.map(function(item){
+			return new Echoes.Views.YoutubeMedia({ model: item });
+		});
+		this.$el.append(_.map(this.views, function(view){
+			return view.render().el;
+		}));
 		this.$el.delay(200).fadeIn(300);
 	},
 
