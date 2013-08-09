@@ -3,8 +3,7 @@ Echoes.Views.App = Backbone.View.extend({
 		this.views = {};
 		this.views.searchBar = new Echoes.Views.MediaSearch({ model: this.model.get('search') });
 
-		// this.views.youtubePlayer = new Echoes.Views.YoutubePlayer({ model: this.model });
-		this.views.youtubePlayer = new Echoes.Views.YoutubePlayerApi({ 
+		this.views.youtubePlayer = new Echoes.Views.YoutubePlayer({ 
 			model: this.model,
 			collection: this.model.get('nowPlaylist')
 		});

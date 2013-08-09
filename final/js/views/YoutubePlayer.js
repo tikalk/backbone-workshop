@@ -1,4 +1,4 @@
-Echoes.Views.YoutubePlayerApi = Backbone.View.extend({
+Echoes.Views.YoutubePlayer = Backbone.View.extend({
 	el: '#youtube-player-container',
 
 	events: {
