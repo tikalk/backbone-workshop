@@ -18,5 +18,16 @@ Echoes.Models.YoutubeMediaProvider = Backbone.Model.extend({
 			this.get('query') + '&alt=jsonc&v=2&start-index=' + 
 			this.get('startIndex') + 
 			'&max-results=' + this.get('maxResults');
+	},
+
+	initialize: function () {
+		
+	},
+
+	search: function () {
+		
+	},
+	query: function () {
+		
 	}
 });
