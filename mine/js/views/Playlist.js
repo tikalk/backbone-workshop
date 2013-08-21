@@ -2,7 +2,7 @@ Echoes.Views.Playlist = Backbone.View.extend({
 	el:  "",
 
 	initialize: function () {
-		this.views = []''
+		this.views = [];
 	},
 	render: function () {
 		
