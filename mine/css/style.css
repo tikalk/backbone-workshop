@@ -405,9 +405,16 @@ footer p {
 	}
 	.youtube-player {
 		top: -223px;
+		-webkit-transform: translate3d(0, -296px, 0);
 	}
 	.show-youtube-player {
 		top: 0;
+	}
+	.navbar-fixed-top, .navbar-fixed-bottom {
+		position: fixed;
+	}
+	.navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner {
+		padding: 0;
 	}
 }
 @media (max-width: 1024px) {
